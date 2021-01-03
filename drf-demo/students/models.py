@@ -8,7 +8,7 @@ class Student(models.Model):
     sex  = models.BooleanField(default=True, verbose_name="性别")
     age  = models.IntegerField(verbose_name="年龄")
     class_num = models.CharField(max_length=5, verbose_name="班级编号")
-    description = models.TextField(max_length=1000, verbose_name="个性签名")
+    description = models.TextField(null=True,max_length=1000, verbose_name="个性签名")
 
     # 表信息
     class Meta:

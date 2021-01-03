@@ -46,7 +46,7 @@ class StudentSeriaizer(serializers.Serializer):
 
 
 
-class Studengt2Serializer(serializers.ModelSerializer):
+class Student2Serializer(serializers.ModelSerializer):
     #字段声明
     token = serializers.CharField(read_only=True,default="abc")
     #模型声明，根据模型帮我们生成序列化字段，modelSerializer和我们的模型会自动把字段复制过来给我们用的
@@ -60,9 +60,15 @@ class Studengt2Serializer(serializers.ModelSerializer):
             "token":{"read_only":True},
             "age":{"min_value":1,"max_value":500},
         }
-
-
     #验证方法
 
-
     #数据库操作方法
+
+class Student3Serializer(serializers.ModelSerializer):
+    #字段声明
+    # token = serializers.CharField(read_only=True,default="abc")
+    #模型声明，根据模型帮我们生成序列化字段，modelSerializer和我们的模型会自动把字段复制过来给我们用的
+    class Meta:
+        model = Student # 通过model调用，继承student，然后把它的字段拿过来
+        fields = ["id","name"]
+        # fields ="__all__"
